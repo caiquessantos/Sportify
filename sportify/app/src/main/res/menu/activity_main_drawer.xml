@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_novo_campeonato"
+            android:icon="@drawable/baseline_add_24"
+            android:title="Novo Campeonato" />
+        <item
+            android:id="@+id/nav_gerenciar_campeonatos"
+            android:icon="@drawable/baseline_emoji_events_24"
+            android:title="Gerenciar Campeonatos" />
+        <item
+            android:id="@+id/nav_contatos"
+            android:icon="@drawable/baseline_contact_page_24"
+            android:title="Contatos" />
+        <item
+            android:id="@+id/nav_pix"
+            android:icon="@drawable/baseline_pix_24"
+            android:title="Pix" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/baseline_logout_24"
+            android:title="Sair"/>
+    </group>
+</menu>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/night"
+    tools:context=".ui.homeEditarCampeonato.HomeEditarCampeonatoFragment">
+
+    <ImageButton
+        android:id="@+id/botao_voltar_editar_campeonatos"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/borda_imagem"
+        android:src="@drawable/baseline_keyboard_backspace_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagem_editar_campeonato"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/borda_imagem"
+        android:padding="2dp"
+        android:src="@drawable/trofeu_padrao_campeonato"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botao_voltar_editar_campeonatos"
+        app:layout_constraintVertical_bias="0.161" />
+
+    <TextView
+        android:id="@+id/texto_nome_editar_campeonato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="TextView"
+        android:textColor="@color/lavender_blush"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagem_editar_campeonato" />
+
+    <TextView
+        android:id="@+id/texto_modalidade_editar_campeonato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="TextView"
+        android:textColor="@color/dim_gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_nome_editar_campeonato" />
+
+    <EditText
+        android:id="@+id/texto_descricao_editar_campeonato"
+        android:layout_width="284dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="24dp"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:maxLength="100"
+        android:textColor="@color/lavender_blush"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_modalidade_editar_campeonato" />
+</androidx.constraintlayout.widget.ConstraintLayout>

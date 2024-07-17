@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <NumberPicker
+        android:id="@+id/criar_partida_time1_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <NumberPicker
+        android:id="@+id/criar_partida_time2_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Time Casa"
+        android:textColor="@color/night"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textColor="@color/night"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/criar_partida_time1_picker"
+        app:layout_constraintEnd_toStartOf="@+id/criar_partida_time2_picker"
+        app:layout_constraintStart_toEndOf="@+id/criar_partida_time1_picker"
+        app:layout_constraintTop_toTopOf="@+id/criar_partida_time2_picker" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Time Visitante"
+        android:textColor="@color/night"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/texto_data_criar_partida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="__/__/__"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/criar_partida_time1_picker"
+        app:layout_constraintTop_toBottomOf="@+id/criar_partida_time1_picker" />
+
+    <ImageButton
+        android:id="@+id/botao_alterar_data_criar_partida"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/texto_data_criar_partida"
+        app:layout_constraintStart_toEndOf="@+id/texto_data_criar_partida"
+        app:layout_constraintTop_toTopOf="@+id/texto_data_criar_partida"
+        app:srcCompat="@drawable/baseline_edit_calendar_24" />
+
+    <TextView
+        android:id="@+id/texto_hora_criar_partida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="xx:xx"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/texto_data_criar_partida"
+        app:layout_constraintStart_toStartOf="@+id/texto_data_criar_partida"
+        app:layout_constraintTop_toBottomOf="@+id/texto_data_criar_partida" />
+
+    <ImageButton
+        android:id="@+id/botao_alterar_hora_criar_partida"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/texto_hora_criar_partida"
+        app:layout_constraintEnd_toEndOf="@+id/botao_alterar_data_criar_partida"
+        app:layout_constraintStart_toStartOf="@+id/botao_alterar_data_criar_partida"
+        app:layout_constraintTop_toTopOf="@+id/texto_hora_criar_partida"
+        app:srcCompat="@drawable/baseline_access_time_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

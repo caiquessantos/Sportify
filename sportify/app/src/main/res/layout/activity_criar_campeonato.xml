@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/night"
+    tools:context=".CriarCampeonatoActivity">
+
+    <ImageButton
+        android:id="@+id/botao_voltar_criar_campeonato"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/borda_imagem"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_keyboard_backspace_24" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Novo Campeonato"
+        android:textColor="@color/lavender_blush"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botao_voltar_criar_campeonato" />
+
+    <ImageView
+        android:id="@+id/imagem_criar_campeonato"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/borda_imagem"
+        android:padding="2dp"
+        android:scaleType="centerInside"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/escolher_foto" />
+
+    <EditText
+        android:id="@+id/nome_campeonato_criar_campeonato"
+        android:layout_width="261dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="Nome do campeonato"
+        android:inputType="text"
+        android:maxLength="20"
+        android:textAlignment="center"
+        android:textColor="@color/lavender_blush"
+        android:textColorHint="@color/dim_gray"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagem_criar_campeonato" />
+
+    <EditText
+        android:id="@+id/descricao_campeonato_criar_campeonato"
+        android:layout_width="315dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:gravity="start|top"
+        android:hint="Descrição do campeonato"
+        android:inputType="textMultiLine"
+        android:maxLength="100"
+        android:textColor="@color/lavender_blush"
+        android:textColorHint="@color/dim_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome_campeonato_criar_campeonato" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_modalidade_criar_campeonato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+        <RadioButton
+            android:id="@+id/radio_button_futebol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/tangerine"
+            android:buttonTint="@color/tangerine"
+            android:fontFamily="@font/roboto_bold"
+            android:shadowColor="@color/tangerine"
+            android:text="Futebol"
+            android:textColor="@color/lavender_blush"
+            android:textSize="18sp"
+            app:useMaterialThemeColors="false" />
+
+        <RadioButton
+            android:id="@+id/radio_button_volei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/tangerine"
+            android:buttonTint="@color/tangerine"
+            android:fontFamily="@font/roboto_bold"
+            android:shadowColor="@color/tangerine"
+            android:text="Voleibol"
+            android:textColor="@color/lavender_blush"
+            android:textSize="18sp"
+            app:useMaterialThemeColors="false" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Modalidade:"
+        android:textColor="@color/dim_gray"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao_campeonato_criar_campeonato" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Formato:"
+        android:textColor="@color/dim_gray"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group_modalidade_criar_campeonato" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/tangerine"
+            android:buttonTint="@color/tangerine"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Liga"
+            android:textColor="@color/lavender_blush"
+            android:textSize="18sp"
+            app:useMaterialThemeColors="false" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/tangerine"
+            android:buttonTint="@color/tangerine"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Copa"
+            android:textColor="@color/lavender_blush"
+            android:textSize="18sp"
+            app:useMaterialThemeColors="false" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/botao_salvar_criar_campeonato"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/tangerine"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Salvar"
+        android:textColor="@color/night"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

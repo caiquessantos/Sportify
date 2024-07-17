@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home_editar_campeonato"
+        android:icon="@drawable/baseline_stadium_24"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_times_editar_campeonato"
+        android:icon="@drawable/baseline_shield_24"
+        android:title="Times" />
+
+    <item
+        android:id="@+id/navigation_partidas_editar_campeonato"
+        android:icon="@drawable/baseline_safety_divider_24"
+        android:title="Partidas" />
+
+</menu>

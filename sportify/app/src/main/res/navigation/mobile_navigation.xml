@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_mostrar_campeonatos">
+
+    <fragment
+        android:id="@+id/nav_mostrar_campeonatos"
+        android:name="com.jvcan.sportify.ui.mostrarCampeonatos.MostrarCampeonatosFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_mostrar_campeonatos" />
+
+    <activity
+        android:id="@+id/nav_novo_campeonato"
+        android:name="com.jvcan.sportify.CriarCampeonatoActivity"
+        tools:layout="@layout/activity_criar_campeonato"/>
+
+    <activity
+        android:id="@+id/nav_contatos"
+        android:name="com.jvcan.sportify.ContatosActivity"
+        tools:layout="@layout/activity_contatos"/>
+
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.jvcan.sportify.LoginActivity"
+        tools:layout="@layout/activity_login"/>
+
+    <activity
+        android:id="@+id/nav_gerenciar_campeonatos"
+        android:name="com.jvcan.sportify.GerenciarCampeonatoActivity"
+        tools:layout="@layout/activity_gerenciar_campeonato"/>
+</navigation>

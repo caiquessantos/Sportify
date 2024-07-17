@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_partida"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/night">
+
+            <TextView
+                android:id="@+id/texto_data_partida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="24/03/2024"
+                android:textColor="@color/lavender_blush"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imagem_partida_time1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borda_imagem"
+                android:padding="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/texto_data_partida"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto_data_partida"
+                app:layout_constraintVertical_bias="0.111"
+                app:srcCompat="@drawable/escudo_padrao_time" />
+
+            <TextView
+                android:id="@+id/texto_placar_partida_time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="3"
+                android:textColor="@color/lavender_blush"
+                android:textSize="48sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imagem_partida_time1"
+                app:layout_constraintStart_toEndOf="@+id/imagem_partida_time1"
+                app:layout_constraintTop_toTopOf="@+id/imagem_partida_time1" />
+
+            <ImageView
+                android:id="@+id/imagem_partida_time2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borda_imagem"
+                android:padding="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/texto_data_partida"
+                app:layout_constraintTop_toBottomOf="@+id/texto_data_partida"
+                app:layout_constraintVertical_bias="0.111"
+                app:srcCompat="@drawable/escudo_padrao_time" />
+
+            <TextView
+                android:id="@+id/texto_placar_partida_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="1"
+                android:textColor="@color/lavender_blush"
+                android:textSize="48sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imagem_partida_time2"
+                app:layout_constraintEnd_toStartOf="@+id/imagem_partida_time2"
+                app:layout_constraintTop_toTopOf="@+id/imagem_partida_time2" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textColor="@color/lavender_blush"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="@+id/texto_placar_partida_time2"
+                app:layout_constraintEnd_toStartOf="@+id/texto_placar_partida_time2"
+                app:layout_constraintStart_toEndOf="@+id/texto_placar_partida_time1"
+                app:layout_constraintTop_toTopOf="@+id/texto_placar_partida_time1" />
+
+            <TextView
+                android:id="@+id/texto_hora_partida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="14:00"
+                android:textColor="@color/lavender_blush"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/texto_data_partida"
+                app:layout_constraintStart_toStartOf="@+id/texto_data_partida"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <TextView
+                android:id="@+id/texto_nome_partida_time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Vasco"
+                android:textColor="@color/lavender_blush"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imagem_partida_time1"
+                app:layout_constraintStart_toStartOf="@+id/imagem_partida_time1"
+                app:layout_constraintTop_toBottomOf="@+id/imagem_partida_time1" />
+
+            <TextView
+                android:id="@+id/texto_nome_partida_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Flamengo"
+                android:textColor="@color/lavender_blush"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imagem_partida_time2"
+                app:layout_constraintStart_toStartOf="@+id/imagem_partida_time2"
+                app:layout_constraintTop_toBottomOf="@+id/imagem_partida_time2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

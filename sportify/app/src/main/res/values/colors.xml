@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="tangerine">#F28300</color>
+    <color name="tigers_eye">#B86200</color>
+    <color name="night">#0A0A0A</color>
+    <color name="lavender_blush">#F3E8EE</color>
+    <color name="cool_gray">#797A9E</color>
+    <color name="dim_gray">#72727E</color>
+    <color name="error">#BE0000</color>
+</resources>

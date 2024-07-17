@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Sportify" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/tangerine</item>
+        <item name="colorPrimaryVariant">@color/tigers_eye</item>
+        <item name="colorOnPrimary">@color/lavender_blush</item>
+
+        <item name="colorSecondary">@color/night</item>
+        <item name="backgroundColor">@color/night</item>
+
+        <item name="android:statusBarColor">@color/night</item>
+        <item name="android:listDivider">@color/white</item>
+    </style>
+
+   <!-- <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/tangerine</item>
+    </style> -->
+
+    <style name="Theme.Sportify" parent="Base.Theme.Sportify" />
+
+    <style name="Theme.Sportify.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/night</item>
+    </style>
+
+    <style name="Theme.Sportify.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Sportify.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>
