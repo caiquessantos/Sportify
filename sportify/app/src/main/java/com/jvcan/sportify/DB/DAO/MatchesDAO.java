@@ -24,18 +24,19 @@ public class MatchesDAO implements iMatches {
      */
     public MatchesDAO(Context context) {
         db = new DBCreation(context);
-        db.getReadableDatabase();//<- segundo a documentacao o WritableDatabase ja abre o db e permite escrita e leitura
+        db.getReadableDatabase();// <- segundo a documentacao o WritableDatabase ja abre o db e permite escrita e
+                                 // leitura
     }
 
     /**
      * Cria uma nova partida no banco de dados.
      *
      * @param idcampeonato ID do campeonato ao qual a partida pertence.
-     * @param local       Local onde a partida será realizada.
-     * @param data        Data da partida.
-     * @param horario     Horário da partida.
-     * @param placarTime1 Placar do time 1.
-     * @param placarTime2 Placar do time 2.
+     * @param local        Local onde a partida será realizada.
+     * @param data         Data da partida.
+     * @param horario      Horário da partida.
+     * @param placarTime1  Placar do time 1.
+     * @param placarTime2  Placar do time 2.
      * @return True se a operação de criação for bem-sucedida, false caso contrário.
      */
     @Override
@@ -72,17 +73,19 @@ public class MatchesDAO implements iMatches {
     /**
      * Atualiza uma partida existente no banco de dados.
      *
-     * @param idPartida   ID da partida a ser atualizada.
+     * @param idPartida    ID da partida a ser atualizada.
      * @param idcampeonato ID do campeonato ao qual a partida pertence.
-     * @param local       Local onde a partida será realizada.
-     * @param data        Data da partida.
-     * @param horario     Horário da partida.
-     * @param placarTime1 Placar do time 1.
-     * @param placarTime2 Placar do time 2.
-     * @return True se a operação de atualização for bem-sucedida, false caso contrário.
+     * @param local        Local onde a partida será realizada.
+     * @param data         Data da partida.
+     * @param horario      Horário da partida.
+     * @param placarTime1  Placar do time 1.
+     * @param placarTime2  Placar do time 2.
+     * @return True se a operação de atualização for bem-sucedida, false caso
+     *         contrário.
      */
     @Override
-    public Boolean update(Long idPartida, Long idcampeonato, String local, String data, String horario, int placarTime1, int placarTime2) {
+    public Boolean update(Long idPartida, Long idcampeonato, String local, String data, String horario, int placarTime1,
+            int placarTime2) {
         SQLiteDatabase database = db.getWritableDatabase();
         String query = "UPDATE " + DBCreation.TABLE_PARTIDA + " SET " +
                 DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA + " = ?, " +
@@ -117,9 +120,10 @@ public class MatchesDAO implements iMatches {
     }
 
     /**
-     * Consulta uma partida específica no banco de dados com base nos IDs da partida e do campeonato.
+     * Consulta uma partida específica no banco de dados com base nos IDs da partida
+     * e do campeonato.
      *
-     * @param idpartida   ID da partida.
+     * @param idpartida    ID da partida.
      * @param idcampeonato ID do campeonato ao qual a partida pertence.
      * @return Objeto Partida se encontrada, null caso contrário.
      */
@@ -131,7 +135,8 @@ public class MatchesDAO implements iMatches {
         Partida partida = null;
 
         try {
-            String query = "SELECT * FROM " + DBCreation.TABLE_PARTIDA + " WHERE " + DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA +
+            String query = "SELECT * FROM " + DBCreation.TABLE_PARTIDA + " WHERE "
+                    + DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA +
                     " = " + idcampeonato + " AND " + DBCreation.COLUMN_ID_PARTIDA + " = " + idpartida;
             res = database.rawQuery(query, null);
 
@@ -156,11 +161,13 @@ public class MatchesDAO implements iMatches {
     }
 
     /**
-     * Exclui uma partida do banco de dados com base nos IDs da partida e do campeonato.
+     * Exclui uma partida do banco de dados com base nos IDs da partida e do
+     * campeonato.
      *
-     * @param idpartida   ID da partida a ser excluída.
+     * @param idpartida    ID da partida a ser excluída.
      * @param idcampeonato ID do campeonato ao qual a partida pertence.
-     * @return True se a operação de exclusão for bem-sucedida, false caso contrário.
+     * @return True se a operação de exclusão for bem-sucedida, false caso
+     *         contrário.
      */
     @Override
     public Boolean delete(Long idpartida, Long idcampeonato) {
@@ -200,11 +207,12 @@ public class MatchesDAO implements iMatches {
         SQLiteDatabase database = db.getWritableDatabase();
 
         // Query para selecionar todas as partidas de um campeonato específico
-        String query = "SELECT * FROM " + DBCreation.TABLE_PARTIDA + " WHERE " + DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA + " = ?";
-        Cursor cursor = database.rawQuery(query, new String[]{String.valueOf(idCampeonato)});
+        String query = "SELECT * FROM " + DBCreation.TABLE_PARTIDA + " WHERE " + DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA
+                + " = ?";
+        Cursor cursor = database.rawQuery(query, new String[] { String.valueOf(idCampeonato) });
 
-        if (cursor != null){
-            while (cursor.moveToNext()){
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
                 Long idpartida = cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_PARTIDA));
                 Long idcampeonato = cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA));
                 String local = cursor.getString(cursor.getColumnIndex(DBCreation.COLUMN_LOCAL));
@@ -223,7 +231,8 @@ public class MatchesDAO implements iMatches {
     }
 
     /**
-     * Obtém estatísticas das partidas realizadas em casa com base no ID do campeonato e do time.
+     * Obtém estatísticas das partidas realizadas em casa com base no ID do
+     * campeonato e do time.
      *
      * @param idcampeonato ID do campeonato.
      * @param idtime       ID do time.
@@ -246,7 +255,7 @@ public class MatchesDAO implements iMatches {
                     "AND jp." + DBCreation.COLUMN_ID_TIME_JP + " = ? " +
                     "AND jp." + DBCreation.COLUMN_MANDANTE + " = 1";
 
-            cursor = database.rawQuery(query, new String[]{idcampeonato.toString(), idtime.toString()});
+            cursor = database.rawQuery(query, new String[] { idcampeonato.toString(), idtime.toString() });
 
             List<Partida> partidasJogadasCasa = new ArrayList<>();
             int totalPartidas = 0;
@@ -260,7 +269,8 @@ public class MatchesDAO implements iMatches {
                 do {
                     Partida partida = new Partida();
                     partida.setIdPartida(cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_PARTIDA)));
-                    partida.setIdcampeonato(cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA)));
+                    partida.setIdcampeonato(
+                            cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA)));
                     partida.setLocal(cursor.getString(cursor.getColumnIndex(DBCreation.COLUMN_LOCAL)));
                     partida.setData(cursor.getString(cursor.getColumnIndex(DBCreation.COLUMN_DATA)));
                     partida.setHorario(cursor.getString(cursor.getColumnIndex(DBCreation.COLUMN_HORARIO)));
@@ -284,7 +294,8 @@ public class MatchesDAO implements iMatches {
                 } while (cursor.moveToNext());
             }
 
-            return new PartidaCasaStats(partidasJogadasCasa, totalPartidas, vitorias, empates, derrotas, totalGolsFeitos, totalGolsTomados);
+            return new PartidaCasaStats(partidasJogadasCasa, totalPartidas, vitorias, empates, derrotas,
+                    totalGolsFeitos, totalGolsTomados);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -300,7 +311,8 @@ public class MatchesDAO implements iMatches {
     }
 
     /**
-     * Obtém estatísticas das partidas realizadas fora com base no ID do campeonato e do time.
+     * Obtém estatísticas das partidas realizadas fora com base no ID do campeonato
+     * e do time.
      *
      * @param idcampeonato ID do campeonato.
      * @param idtime       ID do time.
@@ -323,7 +335,7 @@ public class MatchesDAO implements iMatches {
                     "AND jp." + DBCreation.COLUMN_ID_TIME_JP + " = ? " +
                     "AND jp." + DBCreation.COLUMN_MANDANTE + " = 0";
 
-            cursor = database.rawQuery(query, new String[]{idcampeonato.toString(), idtime.toString()});
+            cursor = database.rawQuery(query, new String[] { idcampeonato.toString(), idtime.toString() });
 
             List<Partida> partidasJogadasVisitante = new ArrayList<>();
             int totalPartidas = 0;
@@ -337,7 +349,8 @@ public class MatchesDAO implements iMatches {
                 do {
                     Partida partida = new Partida();
                     partida.setIdPartida(cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_PARTIDA)));
-                    partida.setIdcampeonato(cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA)));
+                    partida.setIdcampeonato(
+                            cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA)));
                     partida.setLocal(cursor.getString(cursor.getColumnIndex(DBCreation.COLUMN_LOCAL)));
                     partida.setData(cursor.getString(cursor.getColumnIndex(DBCreation.COLUMN_DATA)));
                     partida.setHorario(cursor.getString(cursor.getColumnIndex(DBCreation.COLUMN_HORARIO)));
@@ -361,7 +374,8 @@ public class MatchesDAO implements iMatches {
                 } while (cursor.moveToNext());
             }
 
-            return new PartidaForaStats(partidasJogadasVisitante, totalPartidas, vitorias, empates, derrotas, totalGolsFeitos, totalGolsTomados);
+            return new PartidaForaStats(partidasJogadasVisitante, totalPartidas, vitorias, empates, derrotas,
+                    totalGolsFeitos, totalGolsTomados);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -377,71 +391,12 @@ public class MatchesDAO implements iMatches {
     }
 
     /**
-     * Obtém estatísticas gerais das partidas de um time em um campeonato específico.
-     *
-     * @param idcampeonato ID do campeonato.
-     * @return Objeto PartidaStats com as estatísticas das partidas do time no campeonato, ou null se não encontradas.
-     */
-    @SuppressLint("Range")
-    @Override
-    public List<PartidaStats> getPartidaStats(Long idcampeonato) {
-        List<PartidaStats> statsList = new ArrayList<>();
-        SQLiteDatabase database = db.getReadableDatabase();
-        Cursor cursor = null;
-
-        try {
-            // Consulta para obter as estatísticas de todos os times no campeonato, ordenadas por pontos
-            String query = "SELECT jp." + DBCreation.COLUMN_ID_TIME_JP + ", " +
-                    "COUNT(*) AS totalPartidas, " +
-                    "SUM(CASE WHEN " + DBCreation.COLUMN_PLACAR_TIME1 + " > " + DBCreation.COLUMN_PLACAR_TIME2 + " THEN 1 ELSE 0 END) AS totalVitorias, " +
-                    "SUM(CASE WHEN " + DBCreation.COLUMN_PLACAR_TIME1 + " = " + DBCreation.COLUMN_PLACAR_TIME2 + " THEN 1 ELSE 0 END) AS totalEmpates, " +
-                    "SUM(CASE WHEN " + DBCreation.COLUMN_PLACAR_TIME1 + " < " + DBCreation.COLUMN_PLACAR_TIME2 + " THEN 1 ELSE 0 END) AS totalDerrotas, " +
-                    "SUM(" + DBCreation.COLUMN_PLACAR_TIME1 + ") AS totalGolsFeitos, " +
-                    "SUM(" + DBCreation.COLUMN_PLACAR_TIME2 + ") AS totalGolsSofridos, " +
-                    "(SUM(CASE WHEN " + DBCreation.COLUMN_PLACAR_TIME1 + " > " + DBCreation.COLUMN_PLACAR_TIME2 + " THEN 3 ELSE " +
-                    "CASE WHEN " + DBCreation.COLUMN_PLACAR_TIME1 + " = " + DBCreation.COLUMN_PLACAR_TIME2 + " THEN 1 ELSE 0 END END)) AS totalPontos " +
-                    "FROM " + DBCreation.TABLE_PARTIDA + " p " +
-                    "JOIN " + DBCreation.TABLE_JOGA_PARTIDA + " jp " +
-                    "ON p." + DBCreation.COLUMN_ID_PARTIDA + " = jp." + DBCreation.COLUMN_ID_PARTIDA_JP + " " +
-                    "WHERE p." + DBCreation.COLUMN_ID_CAMPEONATO_PARTIDA + " = ? " +
-                    "GROUP BY jp." + DBCreation.COLUMN_ID_TIME_JP + " " +
-                    "ORDER BY totalPontos DESC";
-
-            cursor = database.rawQuery(query, new String[]{idcampeonato.toString()});
-
-            if (cursor != null && cursor.moveToFirst()) {
-                do {
-                    Long timeId = cursor.getLong(cursor.getColumnIndex(DBCreation.COLUMN_ID_TIME_JP));
-                    int totalPartidas = cursor.getInt(cursor.getColumnIndex("totalPartidas"));
-                    int totalVitorias = cursor.getInt(cursor.getColumnIndex("totalVitorias"));
-                    int totalEmpates = cursor.getInt(cursor.getColumnIndex("totalEmpates"));
-                    int totalDerrotas = cursor.getInt(cursor.getColumnIndex("totalDerrotas"));
-                    int totalGolsFeitos = cursor.getInt(cursor.getColumnIndex("totalGolsFeitos"));
-                    int totalGolsSofridos = cursor.getInt(cursor.getColumnIndex("totalGolsSofridos"));
-                    int saldoGols = cursor.getInt(cursor.getColumnIndex("totalGolsFeitos")) - cursor.getInt(cursor.getColumnIndex("totalGolsSofridos"));
-                    int totalPontos = cursor.getInt(cursor.getColumnIndex("totalPontos"));
-
-                    statsList.add(new PartidaStats(timeId, totalPartidas, totalVitorias, totalEmpates, totalDerrotas, totalGolsFeitos, totalGolsSofridos, saldoGols, totalPontos));
-                } while (cursor.moveToNext());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Trate a exceção de acordo com a sua necessidade
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-            database.close();
-        }
-
-        return statsList;
-    }
-
-    /**
      * Obtém os jogadores de cada time que participaram de uma partida específica.
      *
      * @param idPartida ID da partida.
-     * @return Uma lista de duas listas de JogadorTime, onde o primeiro elemento contém os jogadores do time A (mandante) e o segundo os jogadores do time B (visitante).
+     * @return Uma lista de duas listas de JogadorTime, onde o primeiro elemento
+     *         contém os jogadores do time A (mandante) e o segundo os jogadores do
+     *         time B (visitante).
      */
     @SuppressLint("Range")
     @Override
@@ -455,13 +410,14 @@ public class MatchesDAO implements iMatches {
         try {
             database = db.getReadableDatabase();
 
-            String query = "SELECT j." + DBCreation.COLUMN_ID_JOGADOR + ", j." + DBCreation.COLUMN_NOME_JOGADOR + ", jp." + DBCreation.COLUMN_ID_TIME_JP + ", jp." + DBCreation.COLUMN_MANDANTE + " " +
+            String query = "SELECT j." + DBCreation.COLUMN_ID_JOGADOR + ", j." + DBCreation.COLUMN_NOME_JOGADOR
+                    + ", jp." + DBCreation.COLUMN_ID_TIME_JP + ", jp." + DBCreation.COLUMN_MANDANTE + " " +
                     "FROM " + DBCreation.TABLE_JOGADOR + " j " +
                     "JOIN " + DBCreation.TABLE_JOGA_PARTIDA + " jp " +
                     "ON j." + DBCreation.COLUMN_TIME + " = jp." + DBCreation.COLUMN_ID_TIME_JP + " " +
                     "WHERE jp." + DBCreation.COLUMN_ID_PARTIDA_JP + " = ?";
 
-            cursor = database.rawQuery(query, new String[]{String.valueOf(idPartida)});
+            cursor = database.rawQuery(query, new String[] { String.valueOf(idPartida) });
 
             if (cursor != null && cursor.moveToFirst()) {
                 do {
@@ -481,7 +437,7 @@ public class MatchesDAO implements iMatches {
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {
-            e.printStackTrace();  // Handle the exception, log it or show a message
+            e.printStackTrace(); // Handle the exception, log it or show a message
         } finally {
             if (cursor != null) {
                 cursor.close();
